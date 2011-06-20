@@ -14,9 +14,5 @@ my $app = sub {
 builder {
     enable "ConditionalGET";
     enable "ETag";
-    enable "Auth::Basic", authenticator => sub {
-        my ( $username, $password ) = @_;
-        return $username eq 'github' && $password eq 'octocat';
-    };
     $app;
 };
