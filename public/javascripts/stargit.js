@@ -138,7 +138,6 @@ var stargit=(function(){
       },
       success:
       function(json){
-        console.log(json);
         if (json.nodes.length == 0){
         }
         $("#info_graph_desc").text("The graph for " + user + " contains " + json.nodes.length + " nodes and " + json.edges.length + " edges");
