@@ -322,13 +322,19 @@ var stargit=(function(){
       }
     },
 		
-		onFlashReady: function(){
-			var userNameFromAnchor = window.location.hash.substring(1);
-			
-			if(userNameFromAnchor){
-		    getGithubGraph(userNameFromAnchor);
-		    document.getElementById("query_input").value = userNameFromAnchor;
-			}
-		}
+    onFlashReady: function(){
+      var userNameFromAnchor = window.location.hash.substring(1);
+
+      if(userNameFromAnchor){
+        getGithubGraph(userNameFromAnchor);
+        document.getElementById("query_input").value = userNameFromAnchor;
+      }else{
+        var defaultQuery = "github";
+        
+        getGithubGraph(defaultQuery);
+	window.location.hash = defaultQuery;
+        document.getElementById("query_input").value = defaultQuery;
+      }
+    }
   };
 })();
